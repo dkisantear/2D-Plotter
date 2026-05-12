@@ -1,5 +1,9 @@
 .metadata/
-FinalProject/FinalProject/
+plotter_image_converter/
+FinalProject/*
+!FinalProject/README.md
+!FinalProject/src/
+!FinalProject/src/**
 **/Debug/
 **/Release/
 **/__pycache__/

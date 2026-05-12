@@ -5,15 +5,16 @@ This repo is our final project for a small 2D plotter built around an STM32 boar
 ## Repo layout
 
 - `FinalProject/`
-  - `Core/Src/main.c` - main firmware for the plotter
-  - `Core/Src/i2c_lcd.c` - LCD helper source
-  - `Core/Inc/i2c_lcd.h` - LCD helper header
-  - CubeIDE project files and generated STM32 setup
-- `plotter_image_converter/`
-  - `src/image_to_draw_vectors.py` - image to plotter command converter
-  - `src/function_to_draw_vectors.py` - math function to plotter command converter
-  - `input/` - test images
-  - `output/` - generated command text files
+  - `src/main.c`
+  - `src/i2c_lcd.c`
+  - `src/i2c_lcd.h`
+- `image_to_draw_vectors/`
+  - image conversion script
+  - sample input images
+  - sample generated drawing command files
+- `function_to_draw_vectors/`
+  - math graph conversion script
+  - sample generated graph command files
 - `docs/project_photo.png` - current photo of the plotter setup
 
 ## Hardware summary
@@ -28,7 +29,9 @@ This repo is our final project for a small 2D plotter built around an STM32 boar
 
 ## Firmware notes
 
-The firmware keeps the same motion behavior that was used on the machine:
+The GitHub version only keeps the final firmware source files. We are not using the full CubeIDE project here because the `.ioc` gets rewritten and is not the version we want to submit.
+
+The firmware behavior was not changed:
 
 - pin mappings stay the same
 - stepper movement logic stays the same
@@ -36,32 +39,30 @@ The firmware keeps the same motion behavior that was used on the machine:
 - encoder behavior stays the same
 - homing and centering behavior stay the same
 
-The cleanup in this version was focused on comments, section labels, and general readability for submission.
-
 ## Python helper tools
 
-From `plotter_image_converter/`:
+Image conversion:
 
 ```bash
+cd image_to_draw_vectors
 python src/image_to_draw_vectors.py input/snoopy.png
-python src/function_to_draw_vectors.py "sin(x)" --xmin -3.14159 --xmax 3.14159 --samples 200 --width-mm 40 --height-mm 40
 ```
 
-The old script names `convert.py` and `graph_function.py` are still there as compatibility wrappers.
+Math function conversion:
 
-## Build / open in STM32CubeIDE
-
-Open the `FinalProject/` folder as the STM32CubeIDE project, then build and flash from there.
+```bash
+cd function_to_draw_vectors
+python src/function_to_draw_vectors.py "sin(x)" --xmin -3.14159 --xmax 3.14159 --samples 200 --width-mm 40 --height-mm 40
+```
 
 ## Submission files
 
 Included now:
 
-- cleaned `main.c`
-- `i2c_lcd.c` and `i2c_lcd.h`
+- cleaned firmware source files
 - repo README
 - project photo
-- Python helper scripts for image and graph conversion
+- separate image and math helper folders
 
 Still to add if needed before final submission:
 
