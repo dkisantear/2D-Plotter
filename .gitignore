@@ -1,0 +1,11 @@
+.metadata/
+FinalProject/FinalProject/
+**/Debug/
+**/Release/
+**/__pycache__/
+*.pyc
+*.o
+*.d
+*.su
+*.elf
+*.map

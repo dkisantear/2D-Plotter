@@ -1,0 +1,7 @@
+move_x_mm(-25.0000)
+move_z_mm(-16.6667)
+move_y_mm(-12)
+draw_vector(33.2500, 90.0000)
+draw_vector(49.9167, 0.0000)
+draw_vector(33.2500, -90.0000)
+move_y_mm(12)
